@@ -1,0 +1,13 @@
+.sidebar a{
+    text-decoration: none;
+    color: antiquewhite;
+    display: block !important;
+    cursor: pointer;
+}
+
+.sidebar a:hover{
+  transform: scale(1.02);
+}
+
+
+

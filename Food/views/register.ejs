@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="login-form-container">
+        <form action="/register" method="POST" name="myForm" onsubmit="return validateForm()">
+            <h3>sign up</h3>
+            <span>Email</span>
+            <div id="email">
+                <input type="email" name="username" class="box" placeholder="enter your email" required>
+                <b><div class="formerror" style="color: red;"></div></b>
+            </div>
+
+            <span>password</span>
+            <div id="pass">
+                <input type="password" name="password" class="box" placeholder="enter your password" required>
+                <b><div class="formerror" style="color: red;"></div></b>
+            </div>
+            <span>confirm password</span>
+            <div id="cpass">
+                <input type="password" class="box" name="cpass" placeholder="Confirm your password" id="">
+                <b><div class="formerror" style="color: red;"></div></b>
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" name="" id="remember-me">
+                <label for="remember-me"> remember me</label>
+            </div>
+            <button type="submit" class="btn">sign up</button>
+            <p>forget password ? <a href="#">click here</a></p>
+            <p>already have an account ? <a href="/login">login</a></p>
+        </form>
+    </div>
+    <script src="/JS/validate.js"></script>
+</body>
+</html>

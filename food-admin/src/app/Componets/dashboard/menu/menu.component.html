@@ -1,0 +1,127 @@
+<div class="p-2" style="min-height: 100vh; overflow-y: auto;overflow-x: hidden;">
+
+    <div class="row">
+        <div class="row">
+            <div class="col-10">
+                <h5 class="text-danger mt-3">Menu</h5>
+            </div>
+            <div class="col-2 text-center">
+                <div class="btn btn-warning mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    >Add product
+                </div>
+            </div>
+        </div>
+        <hr class="text-muted mt-3">
+        <div class="row">
+            <div class="col-md-4" *ngFor="let product of products">
+                <div class="card mt-4 shadow">
+                    <img src="{{product.imgUrl}}" class="card-img-top" alt="" width="100%">
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-8">
+                                <h5 class="card-title">{{product.name}}</h5>
+                            </div>
+                            <div class="col-4 me-auto">
+                                <h5 class="card-title">{{product.price | currency:'INR'}}</h5>
+                            </div>
+                        </div>
+                        <p class="card-text">{{product.discription}}</p>
+                        <div class="row ms-3 me-3">
+                            <div class="col-6 d-grid gap-2">
+                                <div class="btn btn-outline-primary" data-bs-toggle="modal"
+                                    data-bs-target="#editModal" (click)="editProduct(product)">Edit</div>
+                            </div>
+                            <div class="col-6 d-grid gap-2">
+                                <div class="btn btn-outline-danger" (click)="deleteProduct(product)">Delete</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add product -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Name of product</label>
+                            <input type="text" class="form-control" id="name" name="product_name"
+                                [(ngModel)]="product_name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Discription</label>
+                            <input type="text" class="form-control" id="name" name="product_dis"
+                                [(ngModel)]="product_dis">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Stock</label>
+                            <input type="number" class="form-control" id="name" name="product_stock"
+                                [(ngModel)]="product_stock">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Price</label>
+                            <input type="number" class="form-control" id="name" name="product_price"
+                                [(ngModel)]="product_price">
+                        </div>
+                        <div class="mb-3">
+                            <input type="file" class="text-nowrap text-truncate file" (change)="selectFile($event)">
+                        </div>
+                        <button type="button" class="btn btn-primary ms-2 me-2"
+                            data-bs-dismiss="modal" (click)="addProduct()">Add Product</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit product -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Name of product</label>
+                            <input type="text" class="form-control" id="name" name="product_name"
+                                [(ngModel)]="product_name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Discription</label>
+                            <input type="text" class="form-control" id="name" name="product_dis"
+                                [(ngModel)]="product_dis">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Stock</label>
+                            <input type="number" class="form-control" id="name" name="product_stock"
+                                [(ngModel)]="product_stock">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Price</label>
+                            <input type="number" class="form-control" id="name" name="product_price"
+                                [(ngModel)]="product_price">
+                        </div>
+                        <div class="mb-3">
+                            <input type="file" class="text-nowrap text-truncate file" (change)="selectFile($event)">
+                        </div>
+                        <button type="button" class="btn btn-primary ms-2 me-2"
+                            data-bs-dismiss="modal" (click)="updateProduct()">Update Product</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

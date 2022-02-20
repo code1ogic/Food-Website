@@ -1,0 +1,84 @@
+<div class="p-2" style="min-height: 100vh; overflow-y: auto;overflow-x: hidden;">
+
+    <div class="row">
+        <h5 class="text-danger mt-3">New Orders</h5>
+        <div *ngFor="let order of Orders;let i = index">
+            <div class="card mt-5 border-0 shadow" style="z-index: 1;">
+                <div class="card-body border" style="background-color:
+                #d2f4ea;">
+                    <div class="row ">
+                        <div class="col-10">
+
+                            <div class="row">
+                                <div class="col">
+                                    <h5><strong>Name :</strong> {{Details[i].Name}} </h5>
+                                </div>
+                                <div class="col">
+                                    <h5><strong>Date :</strong> {{Details[i].Date}} </h5>
+                                </div>
+                                <div class="col">
+                                    <h5><strong>Mobile :</strong> {{Details[i].Mobile}} </h5>
+                                </div>
+                                <div class="col">
+                                    <h5><strong>Amount :</strong> {{calculateTotal(order) | currency:'INR'}} </h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8">
+                                    <h5><strong>Address :</strong> {{Details[i].Address}} </h5>
+                                </div>
+                                <div class="col-4">
+                                    <h5><strong>Order Id :</strong> {{OrderId[i]}} </h5>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="col text-center">
+                            <button class="btn btn-warning" (click)="confirmOrder(OrderId[i],Details[i],order)" data-bs-toggle="modal" data-bs-target="#confirmOrder">Confirm
+                                Order</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-body bg-light">
+                    <div>
+                        <table class="table table-hover">
+                            <tbody>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Price</th>
+                                </tr>
+                                <tr *ngFor="let item of order">
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.quantity}}</td>
+                                    <td>{{item.price}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="confirmOrder" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Message</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-success" role="alert">
+                        Order has been moved to <strong>Bill Section</strong>.
+                    </div>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="reloadPage()">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
